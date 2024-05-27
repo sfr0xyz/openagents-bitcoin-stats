@@ -36,13 +36,13 @@ Replace `<YOUR INPUT>` with a list of statistics you are interested in.
 
 Available statistics (see detailed descriptions [below](#description-of-the-values))
 
-- `market`: Bitcoin market data
-- `latestBlock`: Information about the latest block
-- `mining`: Mining data like the current hashrate and difficulty
-- `fees`: Recommended fees based on the current mempool
-- `mempool`: Mempool stats
-- `lightning`: Lightning Network stats
-- `nodes`: Bitcoin nodes stats
+- `market`: Bitcoin market data such as current price and market cap
+- `latestBlock`: Information about the latest block, such as size and total reward
+- `mining`: Mining data such as current hashrate and difficulty, and difficulty adjustment
+- `fees`: Recommended feerates based on the current mempool
+- `mempool`: Mempool statistics such as number of unconfirmed transactions and pending fees
+- `lightning`: Lightning Network statistics such as total capacity and number of channels
+- `nodes`: Bitcoin node statistics such as total number of nodes
 
 You can include more than one of the above at once.
 
@@ -211,40 +211,40 @@ $ extism call btcstats.wasm run --input 'latestBlock mempool' --wasi --allow-hos
 
 ## Description of the values
 
-- `market`
+- `market`: Bitcoin market data
   - `price`: current US Dollar price for 1 bitcoin
   - `priceChange24hPercent`: US Dollar price change withng the last 24 hour in percent
-  - `moscowTime`: current Moscow time, i.e. SATS/USD
+  - `moscowTime`: current Moscow time, i.e. sats/USD
   - `supply`: current amount of available bitcoin
   - `supplyPercent`: percentage of current supply from the maximum of 21'000'000 bitcoin
   - `marketCap`: current market capitalisation (price x supply)
-- `latestBlock`
+- `latestBlock`: Information about the latest block
   - `height`: block height
-  - `timestamp`: timestamp string in the format dd mmm YYYY HH:mm:ss Z
-  - `transactions`: number of transactions in the latest block
-  - `size`: size in MB
+  - `timestamp`: the block's timestamp (format: ddd, DD MMM YYYY HH:mm:ssZ)
+  - `transactions`: number of transactions in the block
+  - `size`: block size in MB
   - `reward`: total block reward, i.e. subsidy + total fees, in BTC
   - `totalFees`: total amount of fees from the transactions in BTC
-  - `medianFeeRate`: median fee rate paid by the included transactions in SATS/vB
+  - `medianFeeRate`: median fee rate paid by the included transactions in sats/vB
   - `miner`: name of the miner's mining pool
-- `mining`
+- `mining`: Mining data
   - `hashrate`: current hashrate
   - `difficulty`" current difficulty
   - `retargetDifficultyChangePercent`: difficulty change at the next difficulty adjustment in percent
   - `retargetRemainingBlocks`: remaining blocks until difficulty adjustment
-  - `retargetEstimatedDate`: estimated date of the difficulty adjustment (dd mmm YYYY HH:mm:ss Z)
-- `fees`
-  - `fastest`
-  - `halfHour`
-  - `hour`
-  - `economy`
-  - `minimum`
-- `mempool`
+  - `retargetEstimatedDate`: estimated date of the difficulty adjustment (format: ddd, DD MMM YYYY HH:mm:ssZ)
+- `fees`: Recommended feerates based on the current mempool
+  - `fastest`: fee rate to get into the next block in sats/vB
+  - `halfHour`: fee rate to get into a block within the next 30min in sats/vB
+  - `hour`: fee rate to get into a block within the next 1 hour in sats/vB
+  - `economy`: no priority fee rate on sats/vB
+  - `minimum`: minimum fee rate to not be purged from the mempool
+- `mempool`: Mempool statistics
   - `unconfirmedTXs`: current number of transactions in the mempool
   - `vSize`: virtual size of all transaction in the mempool
   - `pendingFees`: total amount of fees from the transaction in the mempool in BTC
   - `blocksToClear`: estimated number of blocks until all transaction in the mempool are included in a block
-- `lightning`
+- `lightning`: Lightning Network statistics
   - `totalNodes`: total number of Lightning nodes
   - `torNodes`: number Lightning nodes running behind TOR
   - `clearnetNodes`: number of Lightning nodes running on clearnet
@@ -254,7 +254,7 @@ $ extism call btcstats.wasm run --input 'latestBlock mempool' --wasi --allow-hos
   - `totalCapacity`: total amount of (visible) BTC in Lightning channels
   - `averageChannelCapacity`: average amount of BTC per channel
   - `medianChannelCapacity`: median amount of BTC per channel
-- `nodes`
+- `nodes`: Bitcoin node statistics
   - `totalNodes`: total number of Bitcoin nodes
   - `torNodes`: number of Bitcoin nodes behind TOR
   - `torNodesPercent`: percentage of nodes behind TOR from the total number
