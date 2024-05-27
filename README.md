@@ -198,13 +198,6 @@ $ extism call btcstats.wasm run --input 'latestBlock mempool' --wasi --allow-hos
     "vSize": 180.66,
     "pendingFees": 5.257,
     "blocksToClear": 181
-  },
-  "mining": {
-    "hashrate": 677612693053317300000,
-    "difficulty": 84381461788831.34,
-    "retargetDifficultyChangePercent": 13.39,
-    "retargetRemainingBlocks": 1395,
-    "retargetEstimatedDate": "Tue, 04 Jun 2024 15:07:02 UTC"
   }
 }
 ```
