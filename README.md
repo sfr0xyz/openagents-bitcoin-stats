@@ -12,13 +12,13 @@ Make sure you have both [Go](https://go.dev/doc/install) and [TinyGo](https://ti
 
 Clone this repo:
 
-```sh
+```bash
 git clone https://github.com/sfr0xyz/openagents-bitcoin-stats.git
 ```
 
 Build the plugin with TinyGo:
 
-```sh
+```bash
 tinygo build -o btcstats.wasm -target wasi .
 ```
 
@@ -28,7 +28,7 @@ Ensure that you have installed the [Extism CLI](https://github.com/extism/cli?ta
 
 You can call the plugin with the Extism CLI:
 
-```sh
+```bash
 extism call btcstats.wasm run --input '<YOUR INPUT>' --wasi --allow-host '*'
 ```
 
@@ -58,7 +58,7 @@ With the prefix `-`, e.g. `-nodes`, you can exclude stats, i.e. "I want all stat
 
 Get **all** stats:
 
-```txt
+```plaintext
 $ extism call btcstats.wasm run --input '' --wasi --allow-host '*'
 
 {
@@ -121,7 +121,7 @@ $ extism call btcstats.wasm run --input '' --wasi --allow-host '*'
 
 Get **all** stats except `nodes`:
 
-```txt
+```plaintext
 $ extism call btcstats.wasm run --input '-nodes' --wasi --allow-host '*'
 
 {
@@ -179,7 +179,7 @@ $ extism call btcstats.wasm run --input '-nodes' --wasi --allow-host '*'
 
 Get `latestBlock` and `mempool` stats:
 
-```txt
+```plaintext
 $ extism call btcstats.wasm run --input 'latestBlock mempool' --wasi --allow-host '*'
 
 {
