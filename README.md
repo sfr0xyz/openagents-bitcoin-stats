@@ -58,7 +58,7 @@ With the prefix `-`, e.g. `-nodes`, you can exclude stats, i.e. "I want all stat
 
 Get **all** stats:
 
-```plain
+```txt
 $ extism call btcstats.wasm run --input '' --wasi --allow-host '*'
 
 {
@@ -121,7 +121,7 @@ $ extism call btcstats.wasm run --input '' --wasi --allow-host '*'
 
 Get **all** stats except `nodes`:
 
-```plain
+```txt
 $ extism call btcstats.wasm run --input '-nodes' --wasi --allow-host '*'
 
 {
@@ -179,7 +179,7 @@ $ extism call btcstats.wasm run --input '-nodes' --wasi --allow-host '*'
 
 Get `latestBlock` and `mempool` stats:
 
-```plain
+```txt
 $ extism call btcstats.wasm run --input 'latestBlock mempool' --wasi --allow-host '*'
 
 {
@@ -229,7 +229,7 @@ $ extism call btcstats.wasm run --input 'latestBlock mempool' --wasi --allow-hos
   - `miner`: name of the miner's mining pool
 - `mining`: Mining data
   - `hashrate`: current hashrate
-  - `difficulty`" current difficulty
+  - `difficulty`: current difficulty
   - `retargetDifficultyChangePercent`: difficulty change at the next difficulty adjustment in percent
   - `retargetRemainingBlocks`: remaining blocks until difficulty adjustment
   - `retargetEstimatedDate`: estimated date of the difficulty adjustment (format: ddd, DD MMM YYYY HH:mm:ssZ)
