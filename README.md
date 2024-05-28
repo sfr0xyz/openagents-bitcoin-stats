@@ -2,7 +2,7 @@
 
 This is a plugin for [OpenAgents](https://openagents.com) that gives you the latest statistics about the Bitcoin network, its mempool and the Lightning Network.
 
-It is inspired by Clark Moody's [Bitcoin Dashboard](https://bitcoin.clarkmoody.com/dashboard) and the [TimeChainCalendar](https://timechaincalendar.com).
+It is inspired by Clark Moody's [Bitcoin Dashboard](https://bitcoin.clarkmoody.com/dashboard) and the [TimechainCalendar](https://timechaincalendar.com).
 
 The project uses the [Extism Framework](https://extism.org/docs/overview/), in particular its [Go PDK](https://github.com/extism/go-pdk), and the REST APIs of [mempool.space](https://mempool.space/docs/api/rest), [bitnodes.io](https://bitnodes.io/api) and [coincap.io](https://docs.coincap.io/).
 
